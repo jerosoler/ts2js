@@ -8,15 +8,57 @@ import Footer from './components/Footer.vue'
 
 <template>
   <Header/>
-  <Editor />
+  <div class="wrapper">
+    <Editor />
+  </div>
   <Footer />
 </template>
 
 <style>
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: black;
+
+:root {
+  --bg: #ffffff;
+  --color: #1c1c1c;
+  --bg-editor: #e7e7e7;
+}
+
+html.dark{
+  --bg: #1c1c1c;
+  --color: #ffffff;
+  --bg-editor: #2d2d2d;
+}
+
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 
+}
+html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  height: 100vh;
+}
+body {
+    width: 100%;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--color);
+}
+.wrapper {
+  position: relative;
+  height: calc(100vh - 140px); 
+  max-height: calc(100vh - 140px);
+}
+
+.monaco-editor, .monaco-editor .overflow-guard {
+  border-radius: 4px;
+  border: 1px solid var(--bg-editor);
 }
 </style>

@@ -1,36 +1,23 @@
 <template>
-<div>
-    <div>Editor</div>
-    <div id="container"></div>
+<MonacoOptions />
+<div class="container">
+  <MonacoEditorTS language="typescript" />
+  <MonacoEditorJS language="javascript" />
 </div>
 </template>
 
 <script setup>
-import * as monaco from 'monaco-editor';
-import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-import tsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker';
-import { onMounted } from 'vue'
-
-
-self.MonacoEnvironment = {
-  getWorker(_, label) {
-    if (label === 'typescript' || label === 'javascript') {
-      return new tsWorker()
-    }
-    return new editorWorker()
-  }
-}
-
-onMounted(() => {
-    monaco.editor.create(document.getElementById('container'), {
-        value: "function hello() {\n\talert('Hello world!');\n}",
-        language: 'javascript'
-    });
-})
+import MonacoEditorTS from './MonacoEditorTS.vue'
+import MonacoEditorJS from './MonacoEditorJS.vue'
+import MonacoOptions from './MonacoOptions.vue'
 </script>
 
 <style scoped>
-#container {
-    height: 800px;
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin:auto;
 }
 </style>
