@@ -1,11 +1,13 @@
 <template>
   <header>
     <h1><icon-ts /><icon-two /><icon-js /> Typescript to Javascript compiler</h1>  
-    
-    <button @click="toggleDark()">
-      <icon-day v-if="isDark"/>
-      <icon-night v-else />
-    </button>
+    <div>
+      <button @click="toggleDark()">
+        <icon-day v-if="isDark"/>
+        <icon-night v-else />
+      </button>
+      <a href="https://github.com/jerosoler/ts2js" target="_blank"><icon-github class="github" /></a>
+    </div>
   </header>
 </template>
 
@@ -17,6 +19,7 @@ import IconJs from '~icons/vscode-icons/file-type-js-official'
 import IconDay from '~icons/carbon/sun/'
 import IconNight from '~icons/carbon/moon/'
 import IconTwo from '~icons/carbon/number-small-2/'
+import IconGithub from '~icons/carbon/logo-github/'
 
 
 const toggleDark = useToggle(isDark);
@@ -34,12 +37,17 @@ header {
   
 }
 
-button {
+button,.github {
   border: 0px;
   background: 0px;
   color: var(--color);
   font-size: 24px;
   cursor: pointer;
 }
+.github {
+  margin-left: 10px;
+}
+
+
 
 </style>

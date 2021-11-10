@@ -81,15 +81,21 @@ select {
   width: 120px;
 }
 
-a:focus, a:focus-visible, a:focus-within a:active, select:focus, select:focus-visible, select:focus-within, select:active, button:focus, button:focus-visible, button:focus-within button:active {
+ select:focus, select:focus-visible, select:focus-within, select:active, button:focus, button:focus-visible, button:focus-within button:active {
     border: 2px solid var(--border);
     outline: 2px solid var(--outline) !important;
 }
+
+
 
 a {
   color: var(--border);
   font-weight: bold;
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--outline);
 }
 
 svg {
