@@ -30,12 +30,6 @@ const editorValue = useEditorStore();
 watch(isDark, (isDark) => {
     monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs')
 })
-/*
-editorValue.$subscribe((mutation, state) => {
-  if(mutation.events.key === "javascript") {
-    MonacoEditor.setValue(editorValue.javascript);
-  };
-}); */
 
 onMounted(() => {    
  const MonacoEditor = monaco.editor.create(editor.value, {
@@ -44,13 +38,27 @@ onMounted(() => {
         theme: isDark.value ? 'vs-dark' : 'vs',
         readOnly: true
     });
-
+  
   editorValue.$subscribe((mutation, state) => {
-    if(mutation.events.key === "javascript") {
+    //if(mutation.events?.key === "javascript") {
       MonacoEditor.setValue(editorValue.javascript);
-    };
-  });
-})
+    //};
+  }); 
+  
+
+ /* editorValue.$onAction(({
+    name, // name of the action
+    after, // hook after the action returns or resolves
+  }) => {
+    after(() => {
+      console.log(name);
+        if(name == "updateJavascript") {
+            MonacoEditor.setValue(editorValue.javascript);
+        }
+    }) 
+    // react to store actions
+  })*/
+}) 
 
 </script>
 

@@ -20,12 +20,17 @@ import Footer from './components/Footer.vue'
   --bg: #ffffff;
   --color: #1c1c1c;
   --bg-editor: #e7e7e7;
+  --border:  rgb(43 185 185);
+  --outline: rgb(16 127 255);   
+  
 }
 
 html.dark{
   --bg: #1c1c1c;
   --color: #ffffff;
   --bg-editor: #2d2d2d;
+  --border:  rgb(209 94 13);
+  --outline: rgb(124 9 149);
 }
 
 
@@ -61,4 +66,35 @@ body {
   border-radius: 4px;
   border: 1px solid var(--bg-editor);
 }
+
+
+button, select {
+    border-radius: 4px; 
+    height: 35px;
+    line-height: 35px;
+    margin-left: 5px;
+    padding: 0px 5px;
+    border: 2px solid #2d2d2d;
+    background: #ffffff;
+}
+select {
+  width: 120px;
+}
+
+a:focus, a:focus-visible, a:focus-within a:active, select:focus, select:focus-visible, select:focus-within, select:active, button:focus, button:focus-visible, button:focus-within button:active {
+    border: 2px solid var(--border);
+    outline: 2px solid var(--outline) !important;
+}
+
+a {
+  color: var(--border);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+svg {
+  position:relative;
+  top: 3px;
+}
+
 </style>
